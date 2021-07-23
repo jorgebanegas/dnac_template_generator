@@ -1,0 +1,7 @@
+PI=""
+USER=""
+PASSWORD=""
+
+USER_DNAC=""
+PASS_DNAC=""
+DNAC=""

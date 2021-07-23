@@ -1,0 +1,3 @@
+bdnm_system:
+  system:
+    config: {domain_name: domain.com, login_banner: "This is a test"}
