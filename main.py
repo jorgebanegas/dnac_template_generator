@@ -91,17 +91,19 @@ new_card_line_counter = 0
 with open("config.txt") as f:
     lines = f.read().splitlines()
     for num, line in enumerate(lines):
-        if line.startswith("interface") and "Vlan" not in line:
+        if line.rsplit("/",1)[0]+'/' in old_line_cards and "Vlan" not in line:
             counter = 1
-            if line.rsplit("/",1)[0]+'/' in old_line_cards and counter1 < 49:
+            if counter1 < 49:
                 line = new_line_cards[new_card_line_counter] + str(counter1)
                 counter1 += 1
+        
             if counter1 == 49:
                 counter1 = 1
                 new_card_line_counter += 1
+
             interfaces_config = ""
             interfaces_config += line + '\n'
-            while lines[num+counter] != '!':
+            while lines[num+counter].strip() != '!':
                 interfaces_config += lines[num+counter] + '\n'
                 counter = counter + 1
 
